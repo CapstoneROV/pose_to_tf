@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>pose_to_tf</name>
+  <version>0.0.0</version>
+  <description>Broadcast TF frames from Pose messages.</description>
+
+  <author email="felixd@gmail.com">Felix Duvallet</author>
+  <maintainer email="felixd@gmail.com">Felix Duvallet</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rosparam</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>rostest</build_depend>
+  <build_depend>tf2</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rosparam</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>rostest</run_depend>
+  <run_depend>tf2</run_depend>
+
+</package>
