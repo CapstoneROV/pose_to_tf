@@ -14,6 +14,7 @@ def cloud_callback(cloud_msg, tf_buffer, pub):
 
         # Publish the transformed point cloud
         pub.publish(cloud_transformed)
+
     except tf2_ros.TransformException as ex:
         rospy.logerr(str(ex))
 
@@ -23,8 +24,8 @@ def main():
     tf_buffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tf_buffer)
 
-    pub = rospy.Publisher('/filtered_msis', PointCloud2, queue_size=1)
-    sub = rospy.Subscriber('/corrected_frame_cloud', PointCloud2, lambda msg: cloud_callback(msg, tf_buffer, pub))
+    pub = rospy.Publisher('/transformed_points', PointCloud2, queue_size=1)
+    sub = rospy.Subscriber('/filtered_msis', PointCloud2, lambda msg: cloud_callback(msg, tf_buffer, pub))
 
     rospy.spin()
 

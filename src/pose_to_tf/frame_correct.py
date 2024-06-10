@@ -3,7 +3,7 @@ import rospy
 from sensor_msgs.msg import PointCloud2
 
 def cloud_callback(cloud_msg):
-    # Assuming this is the wrong one due to the topic name
+    # Assuming this is the wrong one due to the topic name in recording the rosbag
     if cloud_msg.header.frame_id == 'map':
         cloud_msg.header.frame_id = 'ping360_link'  # Correcting the frame_id
         corrected_pub.publish(cloud_msg)  # Publish the corrected message

@@ -1,5 +1,14 @@
 <?xml version="0.1"?>
 <launch> 
+    
+    <!-- Node for publishing bluerov2_link TF from pose of BlueROV2-->
+    <node name="pose_to_tf_rebroadcaster" pkg="pose_to_tf" type="pose_to_tf_rebroadcaster.py" args="--config $(find pose_to_tf)/configs/bluerov2_config.yaml" output="screen" />
+
+    <!-- Node for publishing ping360_link with respect to bluerov2_link-->
     <node pkg="tf" type="static_transform_publisher" name="mbe_link_broadcaster" args="-0.05 0.05 0.1 0 0 0 1 bluerov2_link ping360_link 100" />
+
+    <!-- Node for point cloud transform from ping360_link to map-->
+    <node name="pcl_transform" pkg="pose_to_tf" type="pcl_transform.py" output="screen" />
+    
 </launch>
 
